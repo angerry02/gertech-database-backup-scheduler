@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseBackupScheduler", "DatabaseBackupScheduler\DatabaseBackupScheduler.csproj", "{ACBCA7C7-339F-4C65-9176-961835BA8596}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseBackupScheduler.Shared", "DatabaseBackupScheduler.Shared\DatabaseBackupScheduler.Shared.csproj", "{3CD8F88A-60AE-4BEA-A7DC-C5C078AA4E2E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACBCA7C7-339F-4C65-9176-961835BA8596}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACBCA7C7-339F-4C65-9176-961835BA8596}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACBCA7C7-339F-4C65-9176-961835BA8596}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACBCA7C7-339F-4C65-9176-961835BA8596}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CD8F88A-60AE-4BEA-A7DC-C5C078AA4E2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CD8F88A-60AE-4BEA-A7DC-C5C078AA4E2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CD8F88A-60AE-4BEA-A7DC-C5C078AA4E2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CD8F88A-60AE-4BEA-A7DC-C5C078AA4E2E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3EC1AB1A-E15C-4B50-9392-F3128C1D0C28}
+	EndGlobalSection
+EndGlobal
