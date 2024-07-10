@@ -163,7 +163,6 @@
             btnAdd.TabIndex = 7;
             btnAdd.Text = "ADD";
             btnAdd.UseVisualStyleBackColor = false;
-            btnAdd.Visible = false;
             btnAdd.Click += btnAdd_Click;
             // 
             // pictureBox1

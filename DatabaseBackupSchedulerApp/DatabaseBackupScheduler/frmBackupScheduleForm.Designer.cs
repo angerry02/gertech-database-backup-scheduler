@@ -197,6 +197,7 @@
             btnDelete.TabIndex = 15;
             btnDelete.Text = "DELETE";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Visible = false;
             btnDelete.Click += btnDelete_Click;
             // 
             // frmBackupScheduleForm
