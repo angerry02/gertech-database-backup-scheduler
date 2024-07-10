@@ -41,7 +41,7 @@ namespace DatabaseBackupScheduler
 
             try
             {
-                await BackupScheduleService.AddNewSchedule(backupSchedule);
+                await BackupScheduleService.SaveBackupSchedule(backupSchedule);
                 this.Close();
             }
             catch (Exception ex)

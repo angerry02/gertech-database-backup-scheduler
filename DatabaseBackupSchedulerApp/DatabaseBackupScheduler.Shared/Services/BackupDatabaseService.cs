@@ -10,7 +10,7 @@ namespace DatabaseBackupScheduler.Shared.Services
 {
     public class BackupDatabaseService
     {
-        public static string BackupScheduledDatabase(BackupSchedule backupSchedule)
+        public static string RunBackupScheduledDatabase(BackupSchedule backupSchedule)
         {
             switch(backupSchedule.DatabaseType)
             {

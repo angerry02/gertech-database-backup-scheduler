@@ -53,5 +53,10 @@ namespace DatabaseBackupScheduler.Shared.Entities
         public string BackupPath { get; private set; }
 
         public string? LastRun { get; private set; }
+
+        public void SetLastResult(string value)
+        {
+            LastRun = value;
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace DatabaseBackupScheduler.Shared.Services
 {
     public class BackupScheduleService
     {
-        public static async Task AddNewSchedule(BackupSchedule request)
+        public static async Task SaveBackupSchedule(BackupSchedule request)
         {
             using var db = new ApplicationDBContext();
 
@@ -21,23 +21,19 @@ namespace DatabaseBackupScheduler.Shared.Services
             if(request.Id == 0)
                 db.BackupSchedules.Add(request);
             else
-            {
-                //BackupSchedule? schedule = await db.BackupSchedules
-                //    .FirstOrDefaultAsync(s => s.Id == request.Id);
-
-                //schedule.Name = request.Name;
-
                 db.BackupSchedules.Update(request);
-            }
 
             await db.SaveChangesAsync();
         }
 
-        public static async Task<List<BackupSchedule>> GetBackupSchedules()
+        public static async Task<List<BackupSchedule>> GetBackupSchedules(bool enableOnly = false)
         {
             try
             {
                 using var db = new ApplicationDBContext();
+                if(enableOnly)
+                    return await db.BackupSchedules.Where(x => x.IsEnabled)
+                        .ToListAsync();
                 return await db.BackupSchedules.ToListAsync();
             }
             catch (Exception ex)
