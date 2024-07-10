@@ -46,7 +46,10 @@ namespace DatabaseBackupScheduler
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to save backup schedule. Error: {ex.Message}");
+                MessageBox.Show($"Failed to save backup schedule. Error: {ex.Message}",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
@@ -71,7 +74,10 @@ namespace DatabaseBackupScheduler
                 string messages = FunctionHelper.ErrorStringBuilder(Constants.AppMessages.MESSAGE_BULK_ERROR,
                     FunctionHelper.ErrorListToStringBuilder(errorLs));
 
-                MessageBox.Show(messages);
+                MessageBox.Show(messages,
+                     "Error",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Error);
 
                 return false;
             }
@@ -86,7 +92,7 @@ namespace DatabaseBackupScheduler
 
         private async void frmBackupScheduleForm_Shown(object sender, EventArgs e)
         {
-            if(ID > 0)
+            if (ID > 0)
             {
                 BackupSchedule? backupSchedule = await BackupScheduleService.GetBackupById(ID);
 
@@ -101,6 +107,37 @@ namespace DatabaseBackupScheduler
                     0 : 1;
                 txtDatabaseName.Text = backupSchedule.DatabaseName;
                 txtBackupPath.Text = backupSchedule.BackupPath;
+
+                btnDelete.Visible = true;
+            }
+        }
+
+        private async void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult dg = MessageBox.Show($"Done executing all backup schedules.",
+                    "Success",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+            if (dg != DialogResult.Yes)
+                return;
+
+            BackupSchedule? backupSchedule = await BackupScheduleService.GetBackupById(ID);
+
+            if (backupSchedule == null)
+                return;
+
+            try
+            {
+                await BackupScheduleService.DeleteBackupSchedule(backupSchedule);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to delete backup schedule. Error: {ex.Message}",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
     }

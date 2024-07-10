@@ -41,15 +41,18 @@
             label2 = new Label();
             label3 = new Label();
             btnAdd = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btnBackupNow
             // 
+            btnBackupNow.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnBackupNow.BackColor = Color.FromArgb(64, 64, 64);
             btnBackupNow.FlatAppearance.BorderColor = Color.White;
             btnBackupNow.FlatStyle = FlatStyle.Popup;
             btnBackupNow.ForeColor = Color.White;
-            btnBackupNow.Location = new Point(266, 558);
+            btnBackupNow.Location = new Point(388, 498);
             btnBackupNow.Margin = new Padding(3, 2, 3, 2);
             btnBackupNow.Name = "btnBackupNow";
             btnBackupNow.Size = new Size(183, 40);
@@ -60,12 +63,13 @@
             // 
             // lvSchedules
             // 
+            lvSchedules.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lvSchedules.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6 });
             lvSchedules.FullRowSelect = true;
             lvSchedules.GridLines = true;
             lvSchedules.Location = new Point(25, 119);
             lvSchedules.Name = "lvSchedules";
-            lvSchedules.Size = new Size(424, 414);
+            lvSchedules.Size = new Size(546, 354);
             lvSchedules.TabIndex = 1;
             lvSchedules.UseCompatibleStateImageBehavior = false;
             lvSchedules.View = View.Details;
@@ -91,11 +95,12 @@
             // 
             columnHeader4.Text = "Enable";
             columnHeader4.TextAlign = HorizontalAlignment.Center;
+            columnHeader4.Width = 70;
             // 
             // columnHeader5
             // 
             columnHeader5.Text = "Last Run";
-            columnHeader5.Width = 150;
+            columnHeader5.Width = 250;
             // 
             // columnHeader6
             // 
@@ -104,40 +109,42 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.BackColor = Color.FromArgb(64, 64, 64);
             label1.BorderStyle = BorderStyle.FixedSingle;
             label1.ForeColor = Color.White;
             label1.Location = new Point(25, 91);
             label1.Name = "label1";
-            label1.Size = new Size(424, 29);
+            label1.Size = new Size(546, 29);
             label1.TabIndex = 2;
             label1.Text = "Schedules";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // groupBox1
             // 
-            groupBox1.Location = new Point(24, 539);
+            groupBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.Location = new Point(24, 479);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(426, 10);
+            groupBox1.Size = new Size(548, 10);
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(25, 22);
+            label2.Location = new Point(131, 12);
             label2.Name = "label2";
-            label2.Size = new Size(404, 24);
+            label2.Size = new Size(321, 18);
             label2.TabIndex = 5;
             label2.Text = "GERTech: Database Backup Scheduler";
             // 
             // label3
             // 
-            label3.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Arial Rounded MT Bold", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(64, 64, 64);
-            label3.Location = new Point(25, 49);
+            label3.Location = new Point(131, 39);
             label3.Name = "label3";
             label3.Size = new Size(425, 28);
             label3.TabIndex = 6;
@@ -145,24 +152,38 @@
             // 
             // btnAdd
             // 
+            btnAdd.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnAdd.BackColor = Color.White;
             btnAdd.FlatStyle = FlatStyle.Popup;
             btnAdd.ForeColor = Color.FromArgb(64, 64, 64);
-            btnAdd.Location = new Point(24, 558);
+            btnAdd.Location = new Point(24, 498);
             btnAdd.Margin = new Padding(3, 2, 3, 2);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(71, 40);
             btnAdd.TabIndex = 7;
             btnAdd.Text = "ADD";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Visible = false;
             btnAdd.Click += btnAdd_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BorderStyle = BorderStyle.Fixed3D;
+            pictureBox1.Image = Properties.Resources.LOGO;
+            pictureBox1.Location = new Point(25, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(100, 65);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 8;
+            pictureBox1.TabStop = false;
             // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(8F, 14F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SlateGray;
-            ClientSize = new Size(480, 619);
+            ClientSize = new Size(602, 559);
+            Controls.Add(pictureBox1);
             Controls.Add(btnAdd);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -171,7 +192,6 @@
             Controls.Add(lvSchedules);
             Controls.Add(btnBackupNow);
             Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
@@ -180,6 +200,7 @@
             Text = "GERTech: Database Backup Scheduler v1.0.0.0";
             Load += Main_Load;
             Shown += Main_Shown;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -199,5 +220,6 @@
         private Button btnAdd;
         private ColumnHeader columnHeader5;
         private ColumnHeader columnHeader6;
+        private PictureBox pictureBox1;
     }
 }

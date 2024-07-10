@@ -43,6 +43,7 @@
             label5 = new Label();
             groupBox1 = new GroupBox();
             btnBackupNow = new Button();
+            btnDelete = new Button();
             SuspendLayout();
             // 
             // txtName
@@ -183,12 +184,28 @@
             btnBackupNow.UseVisualStyleBackColor = false;
             btnBackupNow.Click += btnBackupNow_Click;
             // 
+            // btnDelete
+            // 
+            btnDelete.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnDelete.BackColor = Color.White;
+            btnDelete.FlatStyle = FlatStyle.Popup;
+            btnDelete.ForeColor = Color.FromArgb(64, 64, 64);
+            btnDelete.Location = new Point(30, 348);
+            btnDelete.Margin = new Padding(3, 2, 3, 2);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(71, 40);
+            btnDelete.TabIndex = 15;
+            btnDelete.Text = "DELETE";
+            btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
+            // 
             // frmBackupScheduleForm
             // 
             AutoScaleDimensions = new SizeF(8F, 14F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SlateGray;
             ClientSize = new Size(470, 409);
+            Controls.Add(btnDelete);
             Controls.Add(btnBackupNow);
             Controls.Add(groupBox1);
             Controls.Add(cboIsEnable);
@@ -233,5 +250,6 @@
         private Label label5;
         private GroupBox groupBox1;
         private Button btnBackupNow;
+        private Button btnDelete;
     }
 }

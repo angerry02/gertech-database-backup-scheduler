@@ -36,9 +36,9 @@ namespace DatabaseBackupScheduler.Shared.Services
                         .ToListAsync();
                 return await db.BackupSchedules.ToListAsync();
             }
-            catch (Exception ex)
+            catch
             {
-                return new();
+                throw;
             }
         }
 
@@ -47,6 +47,13 @@ namespace DatabaseBackupScheduler.Shared.Services
             using var db = new ApplicationDBContext();
             return await db.BackupSchedules
                 .FirstOrDefaultAsync(s => s.Id == id);
+        }
+
+        public static async Task DeleteBackupSchedule(BackupSchedule request)
+        {
+            using var db = new ApplicationDBContext();
+            db.BackupSchedules.Remove(request);
+            await db.SaveChangesAsync();
         }
     }
 }

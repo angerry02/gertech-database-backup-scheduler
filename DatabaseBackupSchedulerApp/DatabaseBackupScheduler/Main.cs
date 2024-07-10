@@ -35,7 +35,7 @@ namespace DatabaseBackupScheduler
                     int Id = int.Parse(item.SubItems[(int)Columns.ID].Text);
 
                     BackupSchedule? backupSchedule = BackupSchedules.FirstOrDefault(s => s.Id == Id);
-                    if (backupSchedule.IsEnabled)
+                    if (!backupSchedule.IsEnabled)
                         continue;
 
                     item.SubItems[(int)Columns.LAST_RUN].Text = "Start backing up...";
